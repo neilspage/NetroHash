@@ -45,7 +45,6 @@ func hashString(payload string) string {
 		hashOffsetBuffer = int64(hashOffset) * int64(hashOffset)
 	}
 
-	fmt.Println(hashOffsetBuffer)
 	encodedHash := base64.StdEncoding.EncodeToString([]byte(fmt.Sprint(hashOffsetBuffer)))
 	return encodedHash
 }
