@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// Test
-	fmt.Println(hashString("This is a test string."))
+	fmt.Println(hashString("333333"))
 }
 
 func hashString(payload string) string {
@@ -29,6 +29,13 @@ func hashString(payload string) string {
 		// Circumvent reverse-engineering.
 		if int(endVal) == int(startVal) {
 			startVal = byte(1 + int(startVal)*i)
+		}
+
+		// Prevent divide by 0 errors, when setting leftshiftFactor
+		if endVal == 0 {
+			endVal = 1
+		} else if startVal == 0 {
+			startVal = 1
 		}
 
 		if endVal > startVal {
